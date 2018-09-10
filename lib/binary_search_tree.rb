@@ -35,13 +35,14 @@ class BinarySearchTree
   def delete(value)
     node = find(value)
     if node.right.nil? && node.left.nil?
-      node = nil
+      node.parent.left = nil
+      node.parent.right = nil
     elsif node.left.nil? && node.right
       node = node.right
     elsif node.right.nil? && node.left
       node = node.left
     else
-      
+
     end
 
     node
@@ -58,6 +59,7 @@ class BinarySearchTree
   end
 
   def is_balanced?(tree_node = @root)
+
   end
 
   def in_order_traversal(tree_node = @root, arr = [])

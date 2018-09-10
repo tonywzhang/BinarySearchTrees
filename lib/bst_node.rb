@@ -21,8 +21,10 @@ class BSTNode
   def insert(child)
     if @left == nil && child.value <= value
       @left = child
+      @left.parent = self
     elsif @right == nil && child.value > value
       @right = child
+      @right.parent = self
     end
   end
 
