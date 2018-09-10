@@ -25,8 +25,26 @@ class BinarySearchTree
     end
   end
 
+  #Step 1. Perform find(val).
+  #Step 2. If val has no children, "erase" val.
+  #Step 3. If val has one child, promote this child to take val's place, keeping everything else the same.
+  #Step 4a. If val has two children, find the maximum element in val's left subtree. Call this node r.
+  #Step 4b. Replace val with r.
+  #Step 4c. If r had a left child, promote this child to take r's place. Keep everything else the same.
+
   def delete(value)
-    
+    node = find(value)
+    if node.right.nil? && node.left.nil?
+      node = nil
+    elsif node.left.nil? && node.right
+      node = node.right
+    elsif node.right.nil? && node.left
+      node = node.left
+    else
+      
+    end
+
+    node
   end
 
   # helper method for #delete:
@@ -36,6 +54,7 @@ class BinarySearchTree
   end
 
   def depth(tree_node = @root)
+
   end
 
   def is_balanced?(tree_node = @root)
